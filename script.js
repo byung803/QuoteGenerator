@@ -14,7 +14,7 @@ async function getQuote() {
         const data = await response.json();
         authorText.innerText = data.quoteAuthor ? data.quoteAuthor : "Unknown";
         quoteText.innerText = data.quoteText;
-        data.quoteText > 120 ? data.quoteText.classList.add('long-quote') : data.quoteText.classList.remove('long-quote');
+        data.quoteText.length > 120 ? quoteText.classList.add('long-quote') : quoteText.classList.remove('long-quote');
     } catch (error) {
         getQuote();
     }
